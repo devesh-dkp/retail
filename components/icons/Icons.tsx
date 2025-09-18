@@ -54,3 +54,9 @@ export const ArchiveBoxIcon: React.FC<IconProps> = (props) => (
     <path fillRule="evenodd" d="M9 12.75a.75.75 0 01.75-.75h4.5a.75.75 0 010 1.5h-4.5a.75.75 0 01-.75-.75z" clipRule="evenodd" />
   </svg>
 );
+
+export const UsersIcon: React.FC<IconProps> = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M10.5 6a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM4.5 10.5a5.25 5.25 0 00-3.546 9.391.75.75 0 001.06 1.06 6.75 6.75 0 018.982 0 .75.75 0 001.06-1.06A5.25 5.25 0 004.5 10.5zM18.75 6a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM12.75 10.5a5.25 5.25 0 00-3.546 9.391.75.75 0 001.06 1.06 6.75 6.75 0 018.982 0 .75.75 0 001.06-1.06A5.25 5.25 0 0012.75 10.5z" />
+  </svg>
+);

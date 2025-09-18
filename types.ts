@@ -1,6 +1,7 @@
 export enum AppView {
   CHATBOT = 'CHATBOT',
   FORECASTER = 'FORECASTER',
+  TEAM = 'TEAM',
 }
 
 export enum ForecastingModel {

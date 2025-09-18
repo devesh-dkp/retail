@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppView } from '../types';
-import { BotIcon, ChartIcon } from './icons/Icons';
+import { BotIcon, ChartIcon, UsersIcon } from './icons/Icons';
 
 interface HeaderProps {
   currentView: AppView;
@@ -39,6 +39,14 @@ const Header: React.FC<HeaderProps> = ({ currentView, onNavigate }) => {
             >
               <ChartIcon className="h-5 w-5" />
               <span>Demand Forecaster</span>
+            </button>
+            <button
+              onClick={() => onNavigate(AppView.TEAM)}
+              className={getButtonClasses(AppView.TEAM)}
+              aria-pressed={currentView === AppView.TEAM}
+            >
+              <UsersIcon className="h-5 w-5" />
+              <span>Team Details</span>
             </button>
           </nav>
         </div>

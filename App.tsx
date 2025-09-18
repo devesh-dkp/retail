@@ -3,6 +3,7 @@ import { AppView, Order, SalesRecord } from './types';
 import Header from './components/Header';
 import Chatbot from './components/Chatbot';
 import Forecaster from './components/Forecaster';
+import Team from './components/Team';
 import { fetchDataFromUrl, processOrdersToSalesData } from './services/dataService';
 
 // The application will now always load data from this hardcoded URL.
@@ -46,7 +47,7 @@ const App: React.FC = () => {
   }, []);
 
   const renderContent = () => {
-    if (isDataLoading) {
+    if (isDataLoading && (currentView === AppView.CHATBOT || currentView === AppView.FORECASTER)) {
       return (
         <div className="flex justify-center items-center h-64">
           <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-indigo-500"></div>
@@ -54,7 +55,7 @@ const App: React.FC = () => {
       );
     }
 
-    if (dataError) {
+    if (dataError && (currentView === AppView.CHATBOT || currentView === AppView.FORECASTER)) {
       return (
         <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded-md mb-6" role="alert">
           <p className="font-bold">Data Loading Error</p>
@@ -71,18 +72,27 @@ const App: React.FC = () => {
       return <Forecaster salesData={salesData} />;
     }
 
+    if (currentView === AppView.TEAM) {
+      return <Team />;
+    }
+
     return null;
   };
 
   return (
-    <div className="bg-slate-100 min-h-screen font-sans text-slate-800">
+    <div className="bg-slate-100 min-h-screen font-sans text-slate-800 flex flex-col">
       <Header 
         currentView={currentView} 
         onNavigate={handleViewChange}
       />
-      <main className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
+      <main className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full flex-grow">
         {renderContent()}
       </main>
+      <footer className="text-center p-4 bg-slate-200 border-t border-slate-300">
+        <p className="text-sm text-slate-600">
+          Copyright © {new Date().getFullYear()} — Group 51, IIM Mumbai. All Rights Reserved.
+        </p>
+      </footer>
     </div>
   );
 };
