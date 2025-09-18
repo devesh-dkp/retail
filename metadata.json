@@ -1,0 +1,5 @@
+{
+  "name": "Retail Operations Copilot",
+  "description": "An AI-powered application for retail customer support and demand forecasting. Features an AI chatbot for order inquiries and a dashboard for analyzing sales trends and suggesting pricing strategies.",
+  "requestFramePermissions": []
+}
